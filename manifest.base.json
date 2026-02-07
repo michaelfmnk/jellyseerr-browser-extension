@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Jellyseerr Request Button",
   "version": "2.0.0",
-  "description": "Add movies and TV shows to Jellyseerr directly from IMDB, Rotten Tomatoes, TheMovieDB, Letterboxd, Metacritic, and Trakt",
+  "description": "Add movies and TV shows to Jellyseerr directly from IMDB, Rotten Tomatoes, TheMovieDB, Letterboxd, Metacritic, Trakt and Filmweb.pl",
   "permissions": [
     "storage",
     "activeTab"
@@ -21,6 +21,8 @@
     "https://trakt.tv/*",
     "https://www.trakt.tv/*",
     "https://app.trakt.tv/*",
+    "https://www.filmweb.pl/*",
+    "https://filmweb.pl/*",
     "http://localhost/*",
     "https://localhost/*",
     "http://*/*",
@@ -118,6 +120,22 @@
         "src/shared/UIComponents.js",
         "src/shared/BaseIntegration.js",
         "src/content/trakt-integration.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://www.filmweb.pl/film/*",
+        "https://filmweb.pl/film/*",
+        "https://www.filmweb.pl/serial/*",
+        "https://filmweb.pl/serial/*"
+      ],
+      "js": [
+        "src/shared/JellyseerrClient.js",
+        "src/shared/MediaExtractor.js",
+        "src/shared/UIComponents.js",
+        "src/shared/BaseIntegration.js",
+        "src/content/filmweb-integration.js"
       ],
       "run_at": "document_end"
     }
